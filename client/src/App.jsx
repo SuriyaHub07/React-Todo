@@ -1,6 +1,6 @@
 import './App.css'
-import Navbar from "./components/Navbar.jsx"
-import Signin from './pages/Signin.jsx';
+import {BrowserRouter} from 'react-router-dom'
+import Approutes from './Routes/Approutes'
 
 
 
@@ -8,8 +8,10 @@ import Signin from './pages/Signin.jsx';
 function App() {
   return (
     <>
-      < Navbar />
-      <Signin />
+    <BrowserRouter>
+     <Approutes/>
+    </BrowserRouter>
+     
     </>
   )
 }
