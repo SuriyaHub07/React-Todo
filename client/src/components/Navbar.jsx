@@ -1,6 +1,6 @@
 import {FaSun,FaMoon} from "react-icons/fa";
 import {useNavigate} from 'react-router-dom'
-import { useTheme } from "../../Context/ThemeContext";
+import { useTheme } from "../Context/ThemeContext";
 
 const Navbar = () => {
 const navigate=useNavigate();

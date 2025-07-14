@@ -1,16 +1,29 @@
 import React from 'react'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+import {useAuth} from  '../Context/AuthContext';
 
 const Signin = () => {
     const navigate = useNavigate();
+    const {signin} = useAuth();
      const[cred,setCred]=useState({userName:"",password:""});
+     console.log(cred)
+
+     async function handleSubmit(e){
+         e.preventDefault();
+         try{
+            await signin(cred);
+         }
+         catch(err){
+            console.error(err);
+         }
+     }
   return (
     <div className='h-screen bg-gradient-to-r from-blue-400 to-purple-600 dark:from-gray-800 dark:to-gray-900 flex flex-col items-center justify-center'>
         <div className='max-w-md w-full bg-white p-5 rounded-lg  dark:bg-gray-800'>
          <h1 className='text-center font-bold text-3xl text-gray-800 dark:text-gray-100'>Sign In</h1>
          <p className='text-center text-gray-600 dark:text-gray-400 mb-8'>Welcome back! Please login to your account</p>
-            <form >
+            <form  onSubmit={handleSubmit}>
                 <div> 
                     <label 
                         htmlFor="Username"

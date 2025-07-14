@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar'
 import Signin from  '../pages/Signin'
 import Signup from '../pages/Signup'
 import Landingpages from '../components/Landingpages'
+import { ErrorProvider } from '../Context/ErrorContext'
+import TaskForm  from '../components/TaskForm'
 
 
 
@@ -11,11 +13,15 @@ const Approutes = () => {
   return (
     <div>
     <Navbar />
+    
+    <ErrorProvider>
     <Routes>
         <Route path='/login' element={<Signin/>} />
         <Route path='/' element={<Landingpages/>}/>
         <Route path='/register' element={<Signup/>}/>
+        <Route path ='/task' element={<TaskForm/>}/>
     </Routes>
+    </ErrorProvider>
     </div>
   )
 }
