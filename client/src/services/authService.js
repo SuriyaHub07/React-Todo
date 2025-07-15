@@ -6,7 +6,7 @@ return await api.post("/auth/register",cred);
 }
 
 export const signInUser = async(cred)=>{
-    return await api.post("/auth/register",cred);
+    return await api.post("/auth/login",cred);
 }
     
 

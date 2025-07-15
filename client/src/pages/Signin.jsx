@@ -2,20 +2,23 @@ import React from 'react'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useAuth} from  '../Context/AuthContext';
+import {useError} from '../Context/ErrorContext'
 
 const Signin = () => {
     const navigate = useNavigate();
     const {signin} = useAuth();
+    const {handleError,clearError} =useError();
      const[cred,setCred]=useState({userName:"",password:""});
-     console.log(cred)
+ 
 
      async function handleSubmit(e){
          e.preventDefault();
          try{
             await signin(cred);
+            clearError();
          }
          catch(err){
-            console.error(err);
+            handleError(err);
          }
      }
   return (
@@ -43,7 +46,7 @@ const Signin = () => {
                         Password
                     </label>
                     <input type='password' className='appearance-none rounded-lg relative w-full px-2 py-2 border border-gray-300 text-gray-900 bg-white  dark:border-gray-600  dark:placeholder-gray-400  dark:text-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-purple-500 focus:border-purple-500 text-sm' id='password' 
-                    placeholder='Enter your password'    onChange={(e)=>{setCred({...cred,userName:e.target.value})}}
+                    placeholder='Enter your password'    onChange={(e)=>{setCred({...cred,password:e.target.value})}}
                     />
                     <button className='block bg-purple-600  w-full py-2 text-white mt-3 cursor-pointer rounded-lg'>Sign In</button><br/>
                     <p className='text-center px-10 dark:text-gray-400'>Do not have an account?<span className='text-purple-600 cursor-pointer dark:text-purple-400' onClick={()=>navigate("/register")}>Sign up here</span></p>

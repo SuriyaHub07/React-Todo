@@ -15,11 +15,13 @@ export function ErrorProvider({children}){
   const clearError = () => setError(null);
     return(
    <ErrorContext.Provider value = {{error,handleError,clearError}}>
-      {error&&<div
-      className="font-bold bg-red-400 text-white text-center">
-       {error}
+       {error && (
+      <div className="font-bold bg-red-400 text-white text-center p-2 rounded" role="alert">
+        {typeof error === "string"
+          ? error
+          : error?.message ?? "An unexpected error occurred."}
       </div>
-      }
+    )}
        {children}
    </ErrorContext.Provider>
     )

@@ -4,7 +4,7 @@ import Signin from  '../pages/Signin'
 import Signup from '../pages/Signup'
 import Landingpages from '../components/Landingpages'
 import { ErrorProvider } from '../Context/ErrorContext'
-import TaskForm  from '../components/TaskForm'
+import Tasklist from '../pages/Tasklist'
 
 
 
@@ -19,7 +19,7 @@ const Approutes = () => {
         <Route path='/login' element={<Signin/>} />
         <Route path='/' element={<Landingpages/>}/>
         <Route path='/register' element={<Signup/>}/>
-        <Route path ='/task' element={<TaskForm/>}/>
+        <Route path ='/tasks' element={<Tasklist/>}/>
     </Routes>
     </ErrorProvider>
     </div>
