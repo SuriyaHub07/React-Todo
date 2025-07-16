@@ -5,6 +5,7 @@ import Signup from '../pages/Signup'
 import Landingpages from '../components/Landingpages'
 import { ErrorProvider } from '../Context/ErrorContext'
 import Tasklist from '../pages/Tasklist'
+import TaskForm from '../components/TaskForm'
 
 
 
@@ -19,7 +20,7 @@ const Approutes = () => {
         <Route path='/login' element={<Signin/>} />
         <Route path='/' element={<Landingpages/>}/>
         <Route path='/register' element={<Signup/>}/>
-        <Route path ='/tasks' element={<Tasklist/>}/>
+        <Route path ='/tasks' element={<TaskForm/>}/>
     </Routes>
     </ErrorProvider>
     </div>
